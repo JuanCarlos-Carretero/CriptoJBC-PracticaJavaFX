@@ -86,7 +86,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.criptojbc.criptojbcpracticajavafx/com.criptojbc.criptojbcpracticajavafx.HelloApplication
+                                com.criptojbc.criptojbcpracticajavafx/com.criptojbc.criptojbcpracticajavafx.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

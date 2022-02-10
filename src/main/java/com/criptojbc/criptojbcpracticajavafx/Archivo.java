@@ -1,14 +1,22 @@
 package com.criptojbc.criptojbcpracticajavafx;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * Esta clase es la que se encarga de lo relacionado con el archivo.
+ */
 public class Archivo {
     Data data;
-    
-    public void descargar() {
+
+    /**
+     * Este metodo permite descargar el archivo desde una API.
+     */
+    public void Descargar() {
         String url = "https://api.coinbase.com/v2/currencies"; //dirección url del recurso a descargar
         String name = "response.json"; //nombre del archivo destino
         //Directorio destino para las descargas
@@ -54,11 +62,26 @@ public class Archivo {
             ex.printStackTrace();
         }
 
-        LectorJSON lJ = new LectorJSON();
         try {
-            data = lJ.JSONsimple();
+            data = Leer();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Este metodo permite leer el archivo descargado desde la API y guardarlo en un Objeto Data.
+     * @return Retorna una lista de Currencies.
+     * @throws Exception es la clase base para excepciones que se producen mientras se tiene acceso a la información mediante secuencias, archivos y directorios.
+     */
+    public Data Leer() throws Exception {
+        // parsing file "JSONExample.json"
+        data = new ObjectMapper().readValue(new File("src/main/resources/response.json"), Data.class);
+
+        // typecasting ob to JSONObject
+        System.out.println(data.getData());
+
+        System.out.println(data.getData().size());
+        return data;
     }
 }

@@ -42,25 +42,37 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.criptojbc.criptojbcpracticajavafx.HelloController">
+<VBox fx:id="vBox" stylesheets="@theme-dark.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.criptojbc.criptojbcpracticajavafx.HelloController">
   <children>
+      <MenuBar prefHeight="26.0" prefWidth="641.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menuClose" mnemonicParsing="false" onAction="#onClickClose" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleCambiEstilo" text="Change style" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
-            <ScrollPane layoutX="414.0" prefHeight="374.0" prefWidth="226.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <ListView fx:id="currenciesList" layoutY="25.0" onMouseClicked="#onClickListener" prefHeight="349.0" prefWidth="226.0" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </ScrollPane>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="400.0" stroke="BLACK" strokeType="INSIDE" width="641.0" />
+            <ListView fx:id="currenciesList" layoutX="414.0" onMouseClicked="#onClickList" prefHeight="399.0" prefWidth="226.0" />
             <Label layoutX="160.0" layoutY="98.0" text="Full Name:" />
             <Label layoutX="159.0" layoutY="62.0" text="Abbreviated Name:" />
             <BarChart fx:id="barChart" layoutY="145.0" prefHeight="254.0" prefWidth="414.0">
@@ -76,29 +88,11 @@
             <CheckBox fx:id="checkboxDollar" layoutX="320.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#onClickDollar" text="Dollar" />
             <CheckBox fx:id="checkboxEuro" layoutX="320.0" layoutY="58.0" mnemonicParsing="false" onMouseClicked="#onClickEuro" text="Euro" />
             <Button fx:id="refreshList" layoutX="301.0" layoutY="85.0" mnemonicParsing="false" onMouseClicked="#onClickRefresh" text="Refresh List" />
-            <ImageView fx:id="logo" fitHeight="115.0" fitWidth="115.0" layoutX="12.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="115.0" fitWidth="115.0" layoutX="12.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../logo_CriptoJBC.png" />
-               </image></ImageView>
-            <MenuBar layoutX="-1.0" prefHeight="26.0" prefWidth="641.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="menuClose" mnemonicParsing="false" onAction="#onClickClose" text="Close" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Change style" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
+               </image>
+            </ImageView>
          </children>
     </AnchorPane>
   </children>

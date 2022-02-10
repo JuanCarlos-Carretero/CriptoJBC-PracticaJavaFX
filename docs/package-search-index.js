@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.criptojbc.criptojbcpracticajavafx","l":"com.criptojbc.criptojbcpracticajavafx"}];updateSearchResults();
